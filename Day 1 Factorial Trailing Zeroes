@@ -1,0 +1,20 @@
+leetcode > Q 172 
+Factorial Trailing Zeroes :   the factorial of an interger， how many tailing Zeroes of it ? 3!=3 * 2* 1= 6 , here is 0; 300 = 74;
+Basis Rule: 
+The quotient of the divisor(n as original input interger)  will be accumulated added as the number of tailing Zeroes.
+5 as Denominator
+here we go:
+
+  def trailingZeroes(self, n: int) -> int:
+        if n == 0:
+            return 0     #  0!=1, no 
+        count = 0        # set the initial value of zero
+        while n !=0:     # set the loop
+            tem = n //5  # get the first number
+            count+=tem    # accumulated the counts
+            n//=5         # to ge the next n in  the next step
+        reurn count      # finally when the loop breaks, then we get the count, here is the trailing zeros number of factorial
+        
+  Tipps :  get th rules, the regular things !
+   
+
