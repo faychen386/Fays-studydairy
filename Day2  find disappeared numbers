@@ -1,0 +1,35 @@
+ Leetcode448. Find All Numbers Disappeared in an Array: eg, Input: [4,3,2,7,8,2,3,1], Output:[5,6] 
+Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+
+  I got two methods,  to take O(n) runtime and not extra space
+ 
+  Method 1: very regular algorothment
+  def findDisappearedNumbers(nums: list) -> list:
+        
+        tem = [0]*(len(nums))  # firstly assume all is False,
+        for i in nums:
+            tem[i-1]= 1        #  if the numbers from input list exist, then  the element  tem[i] will be true
+                               # now we have a list tem that with some 1, some 0. the 0 ones r those mising element
+                               
+        return [i+1 for i in range(len(nums)) if tem[i] == 0]  # missing element of tem, which is according to the index present
+                                                               # to get the number but not index , we need to add 1 
+                                                               
+                                                               
+                                                               
+  Methid 2  
+  or:
+  def find(nums: list)->list:
+      n= len(nums)       # get the size  , here is still n 
+      
+      d = set(range(1,n+1))  
+      dd = list(d-set(nums))  # set(nums) to get dupplicated numbers away
+                              # set has a function: direct - minus the other set to get the redudant
+      return  dd  # as required list to present
+      
+      
+    
+
+ 
+
+     
+ 
