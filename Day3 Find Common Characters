@@ -1,0 +1,21 @@
+1002. Find Common Characters
+
+requirements:
+eg1 : Input: ["bella","label","roller"]
+      Output: ["e","l","l"]
+eg2:  Input: ["cool","lock","cook"]
+      Output: ["c","o"]
+      
+      
+  def commonChars( A: list) -> list:
+        result= list(A[0])   # let elements in A[0] as compared object
+        for id in A[1:]:     # to check others elements in A[1:]
+            new = []         # set a empty list to add those same objects
+            for c in id:     # if letters in words of A[1:]
+                if c in result:
+                    new+=[c]     # append ono new list 
+                    result.remove(c)  # to avoid dupplicated elements  must the compared object delate the added elements
+            result=new  # after the first round of id, ( finist one word ), then uodate the new compared object
+            
+        return result  # After all the words to compare, then returns to the result
+    
