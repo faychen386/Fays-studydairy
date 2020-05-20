@@ -1,0 +1,44 @@
+recently i am learning cpp and Algo&Datastructure
+here ist the first excersise of Al
+
+quicksort with recursive , with random / fixed element als pivot
+
+
+
+# creat a wrapper, set default random as True/False
+def quicksort（ list):
+  n=len(list)
+  if n > 0:
+    quick_recursive(list, 0,n, if_random=True)
+    
+    
+# use recursive algoritment
+def quicksort(list ,left , right, if_random):
+  #set case left< right, no result
+  if left<right:
+    return 
+  #get the pivotindex
+  q = quick_divide(list,left,right,if_random)
+  quicksort(list,left,q-1,if_random)
+  quicksort(q+1,right,if_random)
+  
+  
+ #Method to get pivot, use random or not:
+ def quick_divide(list,left,right,if_random):
+     if if_random is True:
+        i = random.randint(left,right)
+        list[left], list[i] = list[i],list[left]
+ 
+ # set pivot value
+ pivot = list[left]
+ 
+ #set loop with 2 pointers
+ while left < right:
+      while left < right and list[left] <= pivot:
+            left+=1
+       while left < right and list[right] >= pivot:
+            right+=1
+       list[left],list[right ] = list[right], list[left]
+# since left=right, break
+list[left]=pivot
+return left
