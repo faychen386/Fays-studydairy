@@ -1,0 +1,76 @@
+first cpp programm
+
+vorbereitung:
+1. vim editor and develper
+2. i : to inser and edit,  esc back to command  then :wq or :w,  to save
+   gcc compile
+   ./a.out to release
+   Makefile need to put all clean compile, test command here
+ 3. checkstyle as cpplint.py, put it in the same  main folderfolder, but under same subfolder.
+ 4 manual gcc test.cpp  , if dosen't available, take -lgtest -lgthread as follow
+   
+lets go:  
+//creat a *cpp file as Eulers.cpp
+   
+ // hier stellt copyright, author
+ 
+ #include<stdio>
+ #include<math.h>
+ 
+ doble approximationOfEuler(int n) {
+ 
+ if (n<0) {
+  return -1
+  }
+  
+  int factor = 1 ;
+  double e = 1 ,
+  for (int i =1,i<n,i++){
+    factor*=1 ;
+    e+=1/factor ;
+  }
+  return e
+}
+
+
+put the follow main*cpp in the same folder
+
+// copyright<author>
+# nclude<stdio>
+#include>math.h>
+#include "./Euler.cpp"
+
+int main( int argc* , char**agrv):
+  n= 6 ;
+  prinf( " after %2d iteration is e : %1.10f ", n,approximationOfEuler(n) )
+  
+  
+now creat test
+
+#include <gtest/gtest.h>
+#include "./ApproximateEulersNumber.cpp"        //must insert the test funtion as referenced function
+
+
+// Test function for the function approximateEulersNumber
+
+TEST(ApproximateEulersNumberTest, approximateEulersNumber) {
+  ASSERT_DOUBLE_EQ(1.0, approximateEulersNumber(0));
+  ASSERT_DOUBLE_EQ(1.0, approximateEulersNumber(1));
+  ASSERT_DOUBLE_EQ(0, approximateEulersNumber(-1));
+  ASSERT_DOUBLE_EQ(2.0, approximateEulersNumber(2));
+  ASSERT_DOUBLE_EQ(2.708333333333333, approximateEulersNumber(5));
+}
+
+int main(int argc, char** argv) {
+        ::testing::InitGoogleTest(&argc, argv);
+        return RUN_ALL_TESTS();
+}
+
+
+
+don't forget write capital alphabet as TEST
+lots need to be learned in cpp. especially for the type 
+
+  
+  
+  
